@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CASEFILE // BIOS DB</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="crt" aria-hidden="true">
+    <div class="scanlines"></div>
+    <div class="vignette"></div>
+    <div class="noise"></div>
+  </div>
+
+  <main class="frame">
+    <header class="topline">
+      <div class="topline__left">
+        <span class="muted">MR BIOS (TM)</span>
+        <span class="sep">|</span>
+        <span class="muted">CASEFILE INTERFACE (C) 2025</span>
+        <span class="sep">|</span>
+        <span class="muted">RESEARCH</span>
+      </div>
+      <div class="topline__right">
+        <span class="muted">VER</span> <span class="value">v1.03</span>
+        <span class="sep">|</span>
+        <span class="muted">PORT</span> <span class="value">3</span>
+      </div>
+    </header>
+
+    <nav class="tabs" aria-label="Sections">
+      <button class="tab is-active" type="button">SUMMARY</button>
+      <button class="tab" type="button">FIXED</button>
+      <button class="tab" type="button">BOOT</button>
+      <button class="tab" type="button">SEQ</button>
+      <button class="tab more" type="button">MORE+</button>
+    </nav>
+
+    <section class="grid">
+      <!-- LEFT: console / case text -->
+      <article class="panel panel--left">
+        <div class="panel__head">
+          <span class="label">CASE LOG</span>
+          <span class="dot"></span>
+          <span class="label muted">LIVE</span>
+          <span class="spacer"></span>
+          <span class="muted">SUBJECT:</span>
+          <span class="value" id="subjectName">SUBJECT_001</span>
+        </div>
+
+        <div class="console">
+          <!-- Editable CASE LOG -->
+          <textarea
+            class="console__edit"
+            id="consoleEdit"
+            spellcheck="false"
+            aria-label="Case log editor"
+            readonly
+          ></textarea>
+        </div>
+
+        <div class="controls">
+          <button class="btn" id="prevBtn" type="button">◀ PREV</button>
+          <button class="btn" id="nextBtn" type="button">NEXT ▶</button>
+
+          <div class="pill">
+            <span class="muted">INDEX</span>
+            <span class="value" id="subjectIndex">01/02</span>
+          </div>
+
+          <div class="spacer"></div>
+
+          <!-- New editor controls -->
+          <button class="btn btn--ghost" id="editBtn" type="button">EDIT</button>
+          <button class="btn" id="saveBtn" type="button" disabled>SAVE</button>
+          <button class="btn btn--ghost" id="resetBtn" type="button" disabled>RESET</button>
+        </div>
+
+        <div class="console__footer">
+          <div class="footerline">
+            <span class="muted">ECHO</span> <span class="value" id="echoState">OFF</span>
+            <span class="sep">|</span>
+            <span class="muted">SYNTH</span> <span class="value">BIOS</span>
+            <span class="sep">|</span>
+            <span class="muted">CLOCK</span> <span class="value" id="clock">--:--:--</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- RIGHT: image panel -->
+      <article class="panel panel--right">
+        <div class="panel__head">
+          <span class="label">RENDER</span>
+          <span class="dot"></span>
+          <span class="label muted">SUBJECT PORTRAIT</span>
+          <span class="spacer"></span>
+          <span class="muted">CASE</span>
+          <span class="value" id="caseId">CF-0001</span>
+        </div>
+
+        <div class="renderWrap">
+          <img id="portrait" class="portrait" alt="Subject portrait" />
+        </div>
+
+        <div class="miniBox">
+          <div class="miniBox__title">SYS</div>
+          <div class="miniBox__body">
+            <div><span class="muted">MODE</span> <span class="value">DATABASE</span></div>
+            <div><span class="muted">SIGNAL</span> <span class="value">STABLE</span></div>
+            <div><span class="muted">PACKET</span> <span class="value" id="packet">0x3E9A</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class="banners" aria-label="Status banners">
+      <div class="bannerRow">
+        <span class="bank muted">BANK 1</span>
+        <div class="marquee">
+          <div class="marquee__inner">
+            <span>CASEFILE</span><span class="sep">|</span>
+            <span>SUBJECTS LOADED</span><span class="sep">|</span>
+            <span>READY</span><span class="sep">|</span>
+            <span>CASEFILE</span><span class="sep">|</span>
+            <span>SUBJECTS LOADED</span><span class="sep">|</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bannerRow">
+        <span class="bank muted">BANK 2</span>
+        <div class="marquee slow">
+          <div class="marquee__inner">
+            <span>DEMO UI</span><span class="sep">|</span>
+            <span>FICTIONAL DATA</span><span class="sep">|</span>
+            <span>PRESS NEXT/PREV</span><span class="sep">|</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="signature">
+      <div class="muted">CASEFILE DATABASE UI</div>
+      <div class="value">TERMINAL / BIOS THEME</div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
